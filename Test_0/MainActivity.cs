@@ -11,6 +11,9 @@ using System;
 using Android.Gms.Tasks;
 using Android.Gms.Maps.Model;
 
+
+
+
 namespace Test_0
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
@@ -28,7 +31,10 @@ namespace Test_0
             // Set our view from the "main" layout resource
 
             SetContentView(Resource.Layout.activity_main); //xml을 화면에 뿌려줌
-            
+            // 로그인
+
+
+
             var mapFragment = (MapFragment)FragmentManager.FindFragmentById(Resource.Id.map);
             mapFragment.GetMapAsync(this);// 아마도 Onreadymap을 호출함 
 
@@ -74,9 +80,11 @@ namespace Test_0
             
             //버튼이벤트 연결부
             txtv = FindViewById<TextView>(Resource.Id.textView1);
-            FindViewById<Button>(Resource.Id.button1).Click += (o, e) =>
-            def(def_distance_k);
+            //FindViewById<Button>(Resource.Id.button1).Click += (o, e) =>
+            //def(def_distance_k);
 
+            FindViewById<Button>(Resource.Id.button1).Click += (o, e) =>
+           SetContentView(Resource.Layout.login);
 
 
 
@@ -126,7 +134,7 @@ namespace Test_0
             builder.Target(location);
             builder.Zoom(18);
             builder.Bearing(155);
-            builder.Tilt(65);
+            builder.Tilt(55);
 
             CameraPosition cameraPosition = builder.Build();
 
